@@ -5,7 +5,7 @@ require 'rake/testtask'
 require 'rake/clean'
 
 NAME = "pho-utensil"
-VER = "0.0.1"
+VER = "0.0.2"
 PKG_FILES = %w( README.rdoc Rakefile ) + 
   Dir.glob("{bin,lib,public,views}/**/*")
 
@@ -29,6 +29,7 @@ SPEC =
     s.bindir = "bin"
     s.executables = ["utensil"]
     s.add_dependency("pho", ">= 0.7")
+    s.add_dependency("sinatra", ">= 1.0")
   end
       
 Rake::GemPackageTask.new(SPEC) do |pkg|
