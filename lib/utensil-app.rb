@@ -100,9 +100,16 @@ class UtensilApp < Sinatra::Base
       redirect "/admin"
     else
       jobtype = "http://schemas.talis.com/2006/bigfoot/configuration##{params[:job]}"
-      resp = Pho::Jobs.submit_job(settings.store, jobtype, "Submitted from Pho-Utensil" )
-      #TODO        
-    end
+      begin
+        resp = Pho::Jobs.submit_job(settings.store, jobtype, "Submitted from Pho-Utensil" )
+        if resp.status == 201
+            job_url = resp.header["Location"].first          
+            redirect "/admin?job_url=#{job_url}", 303
+        end
+      rescue Exception => e           
+      end              
+    end  
+    status 500    
   end
   
   get '/configure' do

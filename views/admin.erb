@@ -2,7 +2,19 @@
 	<div class="column span-14">
 	<h2>Job Control</h2>
 	
-		<form action="/jobs" method="post">
+<% if params[:job_url] %>
+<div class="span-12">
+	<span class="column success span-12">Job Successfully Submitted. <a href="<%= params[:job_url] %>">View</a>.</span>
+</div>
+<% end %>
+
+<% if params[:failed] %>
+<div class="span-12">
+	<span class="column error span-12"><%= Failed to submit job %></span>
+</div>
+<% end %>
+		
+		<form class="column span-14" action="/jobs" method="post">
 			<input type="radio" name="job" value="ResetDataJob" />Reset<br />
 			<input type="radio" name="job" value="ReindexJob" />Reindex<br />
 			<input type="radio" name="job" value="SnapshotJob" />Snapshot<br />
