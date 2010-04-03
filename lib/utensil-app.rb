@@ -3,7 +3,12 @@ require 'pho'
 require 'sinatra/base'
 
 class UtensilApp < Sinatra::Base
-  
+
+  helpers do
+    include Rack::Utils
+    alias_method :h, :escape_html
+  end
+    
   #Configure application level options
   #TODO read from YAML configuration file
   configure do |app|
@@ -116,6 +121,39 @@ class UtensilApp < Sinatra::Base
    erb :configure 
   end
 
-  
+
+  get '/update' do
+   @url = params[:url] || ""
+   if @url != ""
+     resp = settings.store.describe(@url)
+     if resp.status == 200 
+       @description = resp.content
+     else
+       @description = ""
+     end
+   else
+     @description = ""
+   end
+   erb :update  end
+
+  post '/update' do
+   if params[:url] == nil || params[:data] == nil || params[:old_data] == nil
+     status 500
+     return "Missing parameters"
+   end
+   
+   before = Pho::ResourceHash::Converter.parse_rdfxml( params[:old_data], params[:url] )
+   after = Pho::ResourceHash::Converter.parse_rdfxml( params[:data], params[:url] )   
+   cs = Pho::Update::ChangesetBuilder.build(params[:url], before, after, "Submitted from Utensil")
+   
+   begin
+     resp = cs.submit(settings.store)
+     if resp.status == 204
+       redirect "/update?success=true&url=#{ escape params[:url]}", 303
+     end
+   rescue Exception => e       
+   end
+   status 500
+   "Error"   end  
 end
 
