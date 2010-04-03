@@ -1,0 +1,28 @@
+<% if params[:success] %>
+<div class="span-14">
+  <span class="column success span-14">Changeset Successfully Applied</span>
+</div>
+<% end %>
+									
+<div class="span-14">
+			
+	<form action="" method="get">	
+		<input class="span-14" name="url" type="text" value="<%= @url %>"/>
+		<input type="submit" value="Fetch"/>
+	</form>
+
+	<form class="span-14" action="/update" method="post">
+	
+	    <textarea class="span-14" name="data" rows="30" cols="60"><%= @description %></textarea>
+
+		<input type="hidden" name="url" value="<%= @url %>"/>
+		<input type="hidden" name="old_data" value="<%= h @description %>"/>
+				
+		<input type="submit" value="Update"/>
+	</form>
+	
+</div>
+
+<div class="span-8 box last">
+	<p>Fetch the description of a resource, edit it, and apply changes back to the store</p>
+</div>
