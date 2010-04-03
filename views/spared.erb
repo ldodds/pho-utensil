@@ -1,0 +1,66 @@
+<div class="column span-16">
+	<h2>SPARQL Query Editor</h2>
+	<form class="spared" action="/sparql">
+
+		<div class="buttons">
+			<button class="positive" id="run-query">
+				<img src="icons/script_go.png" />Run</button>
+			<button id="load-query">
+				<img src="icons/script_edit.png" />Load</button>
+			<button class="negative" id="clear-query">
+				<img src="icons/script_delete.png" />Clear</button>
+		</div>
+
+		<div style="clear: left;"></div>
+
+		<textarea class="code span-16" id="query" name="query" rows="10" cols="60">
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?label WHERE {
+  ?s rdfs:label ?label.
+}
+		</textarea>
+
+		<div class="options">
+			<input type="checkbox" id="inline" checked="checked" value="true">Show results in-line</input>
+		</div>
+		
+	</form>
+
+</div>
+
+<div id="nav" class="column span-8 last">
+  <div class="box">
+  	<h3>Prefixes</h3> 
+  	<div class="contents">
+  	<span class="small">Click to add prefix to query</span>
+  	<div class="list-of-items" id="prefixes">
+  	Empty
+  	</div>
+  	</div>
+  </div>
+
+  <div class="box">
+  	<h3>Templates</h3>
+  	<div class="contents">
+  	<span class="small">Click to create new query from template</span>
+  	<div class="list-of-items" id="templates">
+  	Empty
+  	</div>
+  	</div>
+  </div>
+
+  <div class="box">
+  	<h3>Examples</h3>
+  	<div class="contents">
+  	<span class="small">Click to load example query</span>
+  	<div class="list-of-items" id="examples">
+  	Empty
+  	</div>
+  	</div>
+  </div>
+
+</div>
+
+<div id="results" class="column span-24 last">
+	<h2>Results</h2>
+</div>

@@ -1,0 +1,36 @@
+
+<% if params[:success] == true %>
+<div class="span-24">
+	<span class="column success span-16">Data Successfully Stored</span>
+</div>
+<% end %>
+
+<% if params[:success] == false %>
+<div class="span-24">
+	<span class="column error span-16"><%= params[:response].content %></span>
+</div>
+<% end %>
+
+<% if params[:error] %>
+<div class="span-24">
+	<span class="column error span-16"><%= params[:error] %></span>
+</div>
+<% end %>
+									
+<div class="span-24 last">
+			
+	<form action="/upload" method="post">
+	
+	    <textarea class="span-24" name="data" rows="30" cols="60"></textarea>
+		</textarea>
+		
+		<select name="format">
+		  <option selected="selected" value="application/rdf+xml">RDF/XML</option>
+		  <option value="text/plain">N-Triples</option>
+		  <option value="text/turtle">Turtle</option>
+		</select>
+		
+		<input type="submit" value="Upload"/>
+	</form>
+	
+</div>

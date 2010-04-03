@@ -1,0 +1,35 @@
+<div class="span-16">
+	
+	<h2>Enrich</h2>
+
+<% if params[:success] == true %>
+<span class="column success span-14">Data Successfully Stored</span>
+<% end %>
+
+<% if params[:success] == false %>
+<span class="column error span-14"><%= params[:response].content %></span>
+<% end %>
+
+<% if params[:error] %>
+<span class="column error span-14"><%= params[:error] %></span>
+<% end %>
+				
+	<form action="/enrich/infer" method="post">
+	
+		<input type="text" name="endpoint" class="span-16" value="<%= settings.store.sparql_client.endpoint %>">
+		
+	    <textarea class="span-16" name="query" rows="30" cols="60"></textarea>
+		</textarea>
+		
+		<input type="submit" value="Enrich"/>
+	</form>
+	
+</div>
+
+<div id="nav" class="column span-8 last">
+ <div class="box">
+ <p>Enter a SPARQL CONSTRUCT or DESCRIBE query into the form.</p>
+ <p>The query will be executed against the desired SPARQL endpoint</p>
+ <p>The resulting RDF will automatically be stored.</p>
+ </div>
+</div>

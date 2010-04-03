@@ -1,0 +1,33 @@
+<div class="span-17 box">
+
+	<h2>Recent Metabox Updates</h2>
+
+	<ul>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>				
+	</ul>
+	
+	<h2>Recent Contentbox Updates</h2>
+	
+	<ul>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>
+	<li><a href="http://www.example.org">http://www.example.org</a></li>				
+	</ul>
+
+</div>
+
+<div class="span-4 box last">
+    <strong>Updated:</strong><span>Unknown</span><br />
+    <br />
+    <strong>Readable:</strong> <span><% if @status.readable? %>True<% else %>False<% end %></span><br />
+    <strong>Writeable:</strong> <span><% if @status.writeable? %>True<% else %>False<% end %></span><br />
+    <br />
+    <strong><%= @jobs.length %></strong> <span>scheduled jobs</span>
+</div>
+

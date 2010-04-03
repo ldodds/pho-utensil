@@ -1,0 +1,9 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+#List all of the properties associated with a specific type of resource
+SELECT DISTINCT ?predicate 
+WHERE {
+  ?s ?predicate ?o.
+  #Insert type uri here...
+  ?s a <INSERT-TYPE-URI>.
+}

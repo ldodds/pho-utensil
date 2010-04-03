@@ -1,0 +1,4 @@
+= UTENSIL
+
+A simple web application for administering a Talis Platform Store
+

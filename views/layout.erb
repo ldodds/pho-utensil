@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print">
+		<link rel="stylesheet" href="/css/utensil.css" type="text/css" media="screen, projection">
+		<!--[if IE]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+		
+		<link rel="stylesheet" media="all" type="text/css" href="css/impromptu.css"/>
+	    <link rel="stylesheet" media="all" type="text/css" href="css/ui.tabs.css"/>
+		<link rel="stylesheet" media="all" type="text/css" href="css/spared.css"/>
+	
+	 	<script type="text/javascript" src="lib/jquery-1.2.6.js"></script>
+	 	<script type="text/javascript" src="lib/jquery.ui.all.js"></script>
+	 	<script type="text/javascript" src="lib/jquery-impromptu.1.5.js"></script>
+	 	<script type="text/javascript" src="js/spared-config.js"></script>
+	 	<script type="text/javascript" src="js/spared.js"></script>
+				
+		<title>Pho Utensil for Store: <%= settings.storename %></title>
+	</head>
+
+	<body>
+		<div class="container">
+		    
+		    <div id="header" class="span-24">		    			    	
+      			<div class="span-12 prepend-top"><h1 id="pagetitle"><img src="/img/purzen_Cartoon_spatula.png" style="float: left"/>&nbsp;
+      			<a href="/">Pho Utensil</a><sup class="quiet small alt">0.1</sup></h1>
+      			</div>
+      			<div class="span-12 large last" style="text-align:right">
+        			User: <%= settings.user %> |
+        			Store: <%= settings.storename %> 
+        			<br />
+              	</div>
+      		</div>
+    		<hr class="space">
+      		
+      		<div class="span-24 large">
+      		<a href="/query">Query</a> | <a href="/explore">Explore</a> | <a href="/upload">Load</a> | <a href="/enrich">Enrich</a> | <a href="/configure">Configure</a> | <a href="/admin">Admin</a>
+      		</div>
+
+			<hr>
+			<%= yield %>
+			<hr>
+			
+      		<div class="span-24 quiet">
+      		<code>pho-utensil</code> was written by <a href="http://www.ldodds.com">Leigh Dodds</a>
+      		</div>
+			
+		</div>
+						
+	</body>
+</html>
