@@ -29,6 +29,7 @@ class UtensilApp < Sinatra::Base
   get '/' do
    @jobs = Pho::Jobs.read_from_store( settings.store )
    @status = Pho::Status.read_from_store( settings.store )
+   @records = Pho::OAI::Records.read_from_store( settings.store )
    erb :index
   end
   

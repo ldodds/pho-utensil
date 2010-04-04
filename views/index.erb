@@ -1,24 +1,19 @@
 <div class="span-17 box">
 
-	<h2>Recent Metabox Updates</h2>
+	<h2>Recent Updates</h2>
 
+    <% if @records == nil %>
+    <p>None</p>
+    <% end %>
+
+    <% if @records != nil %>
 	<ul>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>				
+	<% @records.records.each do |record| %>
+	<li><a href="<%= record.identifier %>"><%= record.identifier %></a> <%= record.datestamp %></li>
+	<% end %>				
 	</ul>
-	
-	<h2>Recent Contentbox Updates</h2>
-	
-	<ul>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>
-	<li><a href="http://www.example.org">http://www.example.org</a></li>				
-	</ul>
+    <% end %>
+    
 
 </div>
 
