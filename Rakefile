@@ -28,7 +28,7 @@ SPEC =
     s.require_path = "lib" 
     s.bindir = "bin"
     s.executables = ["utensil"]
-    s.add_dependency("pho", ">= 0.7")
+    s.add_dependency("pho", ">= 0.7.2")
     s.add_dependency("sinatra", ">= 1.0")
   end
       
